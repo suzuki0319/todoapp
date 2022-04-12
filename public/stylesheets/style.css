@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: rgb(176, 146, 146);
+}
+
+a {
+  color: #00b7ff;
+}
+
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #08e44a;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #07ec2d;
+}
+
+<!--
+
