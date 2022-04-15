@@ -4,7 +4,7 @@ body {
 }
 
 body {
-  background-color: rgb(176, 146, 146);
+  background-color: rgb(179, 232, 243);
 }
 
 a {
@@ -25,3 +25,18 @@ a.btn--orange:hover {
 
 <!--
 
+div.my-sample {
+  padding: 8px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: .25rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+pre.my-sample {
+  padding: 4px;
+  border: 1px solid rgb(9, 7, 7);
+  border-radius: .25rem;
+  font-size: 0.9rem;
+  font-family: Consolas, "Meiryo UI";
+}

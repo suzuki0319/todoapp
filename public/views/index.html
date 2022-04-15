@@ -20,27 +20,187 @@
     <title>Todoアプリ</title>
   </head>
   <body>
+  
 
     <div class="container">
       <!-- Content here -->
     </div>
 
     <!--botan-->
-    <button type="button" class="btn btn-primary btn-lg">+タスクを追加</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+      +タスクを追加
+    </button>
+    <!--グリッドの枠線テスト-->
+    <div class="my-sample">
+      <li class="list-group-item category-orange">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <div>犬の散歩をする</div>
+          </div>
+          <div class="col-sm-3">
+            <div>4月13日</div>
+          </div>
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-modal">更新</button>
+            <button type="button" class="btn btn-danger delete" data-delete="犬の散歩をする">削除</button> 
+          </div>
 
+          <div class="col-sm-6">
+            <div>犬のごはんを買う</div>
+          </div>
+          <div class="col-sm-3">
+            <div>5月13日</div>
+          </div>
+          <div class="col-sm-3">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-modal">更新</button>
+            <button type="button" class="btn btn-danger delete" data-delete="犬のごはんを買う">削除</button>
+          </div>
+        </div>
+      </li>
+      </div>
+    </div>
+
+    <!--モーダル-->
+    <div class="modal fade" id="modal1" tabindex="-1"
+         role="dialog" aria-labelledby="label1" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ladel1">タスク登録</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="task">タスク</label>
+                <input type="text" class="form-control" id="task" name="task" />
+              </div>
+              <div class="form-group">
+                <label for="deadline">期限</label>
+                <input type="data" class="form-control" id="deadline" name="deadline"/>
+              </div>
+              <div class="form-group">
+                <label for="category">カテゴリ</label>
+                <select class="form-control" id="category" name="category">
+                  <option value="1">生活</option>
+                  <option value="2">勉強</option>
+                  <option value="3">仕事</option>
+                  <option value="4">趣味</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+            <button type="button" class="btn btn-primary">登録</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+      <!-- モーダル 更新 -->
+    <div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="update-modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="update-modal">更新</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="update-task">タスク</label>
+                <input type="text" class="form-control" id="update-task" name="update-task"/>
+              </div>
+              <div class="form-group">
+                <label for="update-deadline">期限</label>
+                <input type="date" class="form-control" id="update-deadline" name="update-deadline"/>
+              </div>
+              <div class="form-group">
+                <label for="category">カテゴリ</label>
+                <select class="form-control" name="update-category">
+                  <option value="1">生活</option>
+                  <option value="2">勉強</option>
+                  <option value="3">仕事</option>
+                  <option value="4">趣味</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="category">ステータス</label>
+                <select class="form-control" name="update-category">
+                  <option value="1">完了</option>
+                  <option value="2">作業中</option>
+                  <option value="3">未実施</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル </button>
+            <button type="button" data-dismiss="modal" class="btn btn-primary" id="update-task">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- モーダル 更新 END -->
+
+
+
+    <!--モーダルテスト
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+      Launch demo modal
+    </button>
+    -->
+    <!--
+    <div class="modal fade" id="modal1" tabindex="-1"
+          role="dialog" aria-labelledby="label1" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="label1">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Modal body
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
     <!--リスト1-->
+    <!--
    <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; background-color: #4798da; color: #ffffff;">
       犬の餌を購入する
    </div>
    <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; background-color: #4798da; color: #ffffff;">
     犬の散歩をする
    </div>
-
+-->
  <!--リスト2グリッド-->
 
-<!--コンテナテスト、箱を作りたい-->
+<!--コンテナテスト、箱を作りたい
 <div class="container-fluid">
   <div class="row">
+
     <div class="col-sm-0.5" style="background-color:orange; height: 5vh;">#</div>
     <div class="col-sm-7" style="background-color:#ffffff; height: 5vh;">white</div>
     <div class="col-sm-1" style="background-color:#4798da;height: 5vh;">blue</div>
@@ -54,20 +214,37 @@
     <div class="col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">red</div>
   </div>
 </div>
-<!--グリッド練習-->
+
+-->
+
+<!--グリッド練習
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-0.5">
-      <div class="border border-primary" style="background-color: orange;height: 5vh;">#</div>
-    </div>
-    <div class="col-sm-7">
-      <div class="border border-primary" style="background-color:#ffffff; height: 5vh;">white</div>
-    </div>
+      <div class="border border-primary col-sm-0.5" style="background-color: orange; height: 5vh;">オレンジ</div>
+      <div class="border border-primary col-sm-7" style="background-color:#ffffff; height: 5vh;">白</div>
+      <div class="border border-primary col-sm-1" style="background-color:#4798da;height: 5vh;">青</div>
+      <div class="border border-primary col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">赤</div>
   </div>
 </div>
-<!--ここまで練習-->
-
-
+<div class="container-fluid">
+  <div class="row">
+      <div class="border border-primary col-sm-0.5" style="background-color: orange; height: 5vh;">オレンジ</div>
+      <div class="border border-primary col-sm-7" style="background-color:#ffffff; height: 5vh;">白</div>
+      <div class="border border-primary col-sm-1" style="background-color:#4798da;height: 5vh;">青</div>
+      <div class="border border-primary col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">赤</div>
+  </div>
+</div>
+ここまで練習
+グリッドとボーダーが対応していない
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-sm-0.5" style="background-color: orange; height: 5vh;">オレンジ</div>
+      <div class=" col-sm-7" style="background-color:#ffffff; height: 5vh;">白</div>
+      <div class="col-sm-1" style="background-color:#4798da;height: 5vh;">青</div>
+      <div class="col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">赤</div>
+  </div>
+</div>
+-->
 
 
 
@@ -89,5 +266,37 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="../javascripts/index.js"></script>
+
+    <script>
+      // 一覧取得
+      $(async function () {
+        const response = await httpGet(
+          "//" + window.location.host + "/api/tasks"
+        );
+        console.log(response);
+      });
+
+      // 削除
+      $(".delete").on("click", function () {
+        const taskName = $(this).data("delete");
+        alert(`下記の内容を削除します。\n ${taskName}`);
+      });
+
+      // 新規登録
+      $("#create-task").on("click", async function () {
+        const data = {
+          taskName: $("[name=task]").val(),
+          deadline: $("[name=deadline]").val(),
+          category: $("[name=category]").val(),
+        };
+        const response = await httpPost(
+          "//" + window.location.host + "/api/tasks",
+          data
+        );
+        console.log(response);
+      });
+    </script>
+    
   </body>
 </html>
