@@ -55,9 +55,3 @@ const httpDelete = async function (url) {
     console.log(err);
   }
 };
-
-
-//tesut
-
-
-
