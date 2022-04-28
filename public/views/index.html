@@ -1,367 +1,3 @@
-<style>/*
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../stylesheets/style.css" />
-
-    <title>Todoアプリ</title>
-  </head>
-  <body>
-  
-
-    <div class="container">
-      <!-- Content here -->
-    </div>
-
-    <!--botan-->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-      +タスクを追加
-    </button>
-
-
-    <!--てすと-->
-    <ul class="list-group">
-      <li class="list-group-item category-orange">
-        <div class="row align-items-center">
-          <div class="col-6">
-            <div>犬の散歩をする</div>
-          </div>
-          <div class="col-3">
-            <div>2022年4月14日</div>
-          </div>
-          <div class="col-3">
-            <button type="button" class="btn btn-primary" data-toggle="modal"data-target="#update-modal">更新</button>
-
-            <button type="button"class="btn btn-danger delete"data-delete="犬の散歩をする">削除</button>
-          </div>
-        </div>
-      </li>
-      <li class="list-group-item category-green">
-        <div class="row align-items-center">
-          <div class="col-6">
-            <div>勉強をする</div>
-          </div>
-          <div class="col-3">
-            <div>2022年4月14日</div>
-          </div>
-          <div class="col-3">
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#update-modal"
-            >
-              更新
-            </button>
-            <button
-              type="button"
-              class="btn btn-danger delete"
-              data-delete="勉強をする"
-            >
-              削除
-            </button>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-    <!--グリッドの枠線テスト
-    <div class="my-sample">
-      <li class="list-group-item category-orange">
-      <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-sm-6">
-            <div>犬の散歩をする</div>
-          </div>
-          <div class="col-sm-3">
-            <div>4月13日</div>
-          </div>
-          <div class="col-sm-3">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-modal">更新</button>
-            <button type="button" class="btn btn-danger delete" data-delete="犬の散歩をする">削除</button> 
-          </div>
-
-          <div class="col-sm-6">
-            <div>犬のごはんを買う</div>
-          </div>
-          <div class="col-sm-3">
-            <div>5月13日</div>
-          </div>
-          <div class="col-sm-3">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update-modal">更新</button>
-            <button type="button" class="btn btn-danger delete" data-delete="犬のごはんを買う">削除</button>
-          </div>
-        </div>
-      </li>
-      </div>
-    </div>
-    -->
-
-    <!--モーダル新規登録-->
-    <div class="modal fade" id="modal1" tabindex="-1"
-         role="dialog" aria-labelledby="label1" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="ladel1">タスク登録</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="task">タスク</label>
-                <input type="text" class="form-control" id="task" name="task" />
-              </div>
-              <div class="form-group">
-                <label for="deadline">期限</label>
-                <input type="data" class="form-control" id="deadline" name="deadline"/>
-              </div>
-              <div class="form-group">
-                <label for="category">カテゴリ</label>
-                <select class="form-control" id="category" name="category">
-                  <option value="1">生活</option>
-                  <option value="2">勉強</option>
-                  <option value="3">仕事</option>
-                  <option value="4">趣味</option>
-                </select>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-            <button type="button" class="btn btn-primary" id="create-task">登録</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-      <!-- モーダル 更新 -->
-    <div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="update-modal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="update-modal">更新</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="update-task">タスク</label>
-                <input type="text" class="form-control" id="update-task" name="update-task"/>
-              </div>
-              <div class="form-group">
-                <label for="update-deadline">期限</label>
-                <input type="date" class="form-control" id="update-deadline" name="update-deadline"/>
-              </div>
-              <div class="form-group">
-                <label for="category">カテゴリ</label>
-                <select class="form-control" name="update-category">
-                  <option value="1">生活</option>
-                  <option value="2">勉強</option>
-                  <option value="3">仕事</option>
-                  <option value="4">趣味</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="category">ステータス</label>
-                <select class="form-control" name="update-category">
-                  <option value="1">完了</option>
-                  <option value="2">作業中</option>
-                  <option value="3">未実施</option>
-                </select>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル </button>
-            <button type="button" data-dismiss="modal" class="btn btn-primary" id="update-task">保存</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- モーダル 更新 END -->
-
-
-
-    <!--モーダルテスト
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
-      Launch demo modal
-    </button>
-    -->
-    <!--
-    <div class="modal fade" id="modal1" tabindex="-1"
-          role="dialog" aria-labelledby="label1" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="label1">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Modal body
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">OK</button>
-          </div>
-        </div>
-      </div>
-    </div>
--->
-    <!--リスト1-->
-    <!--
-   <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; background-color: #4798da; color: #ffffff;">
-      犬の餌を購入する
-   </div>
-   <div style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333; background-color: #4798da; color: #ffffff;">
-    犬の散歩をする
-   </div>
--->
- <!--リスト2グリッド-->
-
-<!--コンテナテスト、箱を作りたい
-<div class="container-fluid">
-  <div class="row">
-
-    <div class="col-sm-0.5" style="background-color:orange; height: 5vh;">#</div>
-    <div class="col-sm-7" style="background-color:#ffffff; height: 5vh;">white</div>
-    <div class="col-sm-1" style="background-color:#4798da;height: 5vh;">blue</div>
-    <div class="col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">red</div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-0.5" style="background-color:orange; height: 5vh;">#</div>
-    <div class="col-sm-7" style="background-color:#ffffff; height: 5vh;">white</div>
-    <div class="col-sm-1" style="background-color:#4798da;height: 5vh;">blue</div>
-    <div class="col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">red</div>
-  </div>
-</div>
-
--->
-
-<!--グリッド練習
-<div class="container-fluid">
-  <div class="row">
-      <div class="border border-primary col-sm-0.5" style="background-color: orange; height: 5vh;">オレンジ</div>
-      <div class="border border-primary col-sm-7" style="background-color:#ffffff; height: 5vh;">白</div>
-      <div class="border border-primary col-sm-1" style="background-color:#4798da;height: 5vh;">青</div>
-      <div class="border border-primary col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">赤</div>
-  </div>
-</div>
-<div class="container-fluid">
-  <div class="row">
-      <div class="border border-primary col-sm-0.5" style="background-color: orange; height: 5vh;">オレンジ</div>
-      <div class="border border-primary col-sm-7" style="background-color:#ffffff; height: 5vh;">白</div>
-      <div class="border border-primary col-sm-1" style="background-color:#4798da;height: 5vh;">青</div>
-      <div class="border border-primary col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">赤</div>
-  </div>
-</div>
-ここまで練習
-グリッドとボーダーが対応していない
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-sm-0.5" style="background-color: orange; height: 5vh;">オレンジ</div>
-      <div class=" col-sm-7" style="background-color:#ffffff; height: 5vh;">白</div>
-      <div class="col-sm-1" style="background-color:#4798da;height: 5vh;">青</div>
-      <div class="col-sm-1" style="background-color:rgb(239, 105, 143); height: 5vh;">赤</div>
-  </div>
-</div>
--->
-
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../javascripts/index.js"></script>
-
-    <script>
-      // 一覧取得
-      $(async function () {
-        const response = await httpGet(
-          "//" + window.location.host + "/api/tasks"
-        );
-        console.log(response);
-      });
-
-      // 削除
-      $(".delete").on("click", function () {
-        const taskName = $(this).data("delete");
-        alert(`下記の内容を削除します。\n ${taskName}`);
-      });
-
-      // 新規登録ボタン押下時
-      $("#create-task").on("click", async function () {
-        //リクエストでーたをフォームから取得
-        const requestData = {
-          taskName: $("#create-form input[name=task]").val(),
-          deadline: $("#create-form input[name=deadline]").val(),
-          category: $("create-form select[name=category]").val(),
-        };
-
-        //新規登録APIを実行
-        const response = await httpPost(
-          "//" + window.location.host + "/api/tasks",
-          requestData
-        );
-
-        //画面をリロード
-        window.location.reload();
-        console.log(response);
-      });
-    </script>
-    
-  </body>
-</html>
-
-*/</style>
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -386,6 +22,8 @@
   <body>
     <div class="container">
       <!-- Content here -->
+
+      <!--新規登録ボタン-->
       <button
         type="button"
         class="btn btn-success"
@@ -395,14 +33,21 @@
         +新規登録
       </button>
 
+      <!--新規登録ボタンEND-->
+
+      <!--やることリストbootstrap-->
       <ul class="list-group" id="task-list">
         <li class="list-group-item category-orange">
           <div class="row align-items-center">
             <div class="col-6">
-              <div>犬の散歩をする</div>
+              <div>
+                宿題をやる
+              </div>
             </div>
             <div class="col-3">
-              <div>2022年4月14日</div>
+              <div>
+                <input type="date" class="form-control" id="update-deadline" name="update-deadline"/> <!--直接打てるように修正-->
+              </div>
             </div>
             <div class="col-3">
               <button
@@ -430,7 +75,9 @@
               <div>勉強をする</div>
             </div>
             <div class="col-3">
-              <div>2022年4月14日</div>
+              <div>
+                <input type="date" class="form-control" id="update-deadline" name="update-deadline"/> <!--直接打てるように修正-->
+              </div>
             </div>
             <div class="col-3">
               <button
@@ -454,7 +101,10 @@
       </ul>
     </div>
 
-    <!-- モーダル 新規登録 -->
+    <!--やることリストbootstrap END-->
+
+
+    <!--新規登録ボタンのモーダル -->
     <div
       class="modal fade"
       id="create-modal"
@@ -480,7 +130,7 @@
             <form>
               <div class="form-group">
                 <label for="task">タスク</label>
-                <input type="text" class="form-control" id="task" name="create-task" />
+                <input type="text" class="form-control" id="task" name="create-task" /> <!--　←タスク内に入力された文字を取得してる　-->
               </div>
               <div class="form-group">
                 <label for="deadline">期限</label>
@@ -492,7 +142,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="category">カテゴリ</label>
+                <label for="category">カテゴリ</label> <!--カテゴリについての情報を取得している-->
                 <select class="form-control" id="category" name="create-category">
                   <option value="1">生活</option>
                   <option value="2">勉強</option>
@@ -524,47 +174,25 @@
     </div>
     <!-- モーダル 新規登録 END -->
 
-    <!-- モーダル 更新 -->
-    <div
-      class="modal fade"
-      id="update-modal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="update-modal"
-      aria-hidden="true"
-    >
+    <!-- 更新 ボタンを押したときのモーダル-->
+    <div class="modal fade" id="update-modal" tabindex="-1" role="dialog" aria-labelledby="update-modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="update-modal">更新</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="update-task">タスク</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="update-task"
-                  name="update-task"
-                />
+                <label for="update-mask">タスク</label>
+                <input type="text" class="form-control" id="update-mask" name="update-mask"/><!--タスク名の入力を受け取っている-->
               </div>
               <div class="form-group">
                 <label for="update-deadline">期限</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  id="update-deadline"
-                  name="update-deadline"
-                />
+                <input type="date" class="form-control" id="update-deadline" name="update-deadline"/>
               </div>
               <div class="form-group">
                 <label for="category">カテゴリ</label>
@@ -597,7 +225,7 @@
               type="button"
               data-dismiss="modal"
               class="btn btn-primary"
-              id="update-task"
+              id="update-mask"
             >
               保存
             </button>
@@ -610,6 +238,7 @@
 
     <!--APIと画面をつなぎこむ-->
 
+    <!--新規登録ボタンとAPIをつないでいる-->
     <div class="create-form" id="create-form" style="display: none;">
       <form>
         <label for="task">タスク名</label>
@@ -628,7 +257,7 @@
       <button class="display-none"id="create-task">登録</button>
     </div>
 
-    <!---->
+    <!--bootstrapなしのほうの更新ボタン-->
     <div class="update-form" id="update-form" style="display: none">
       <form>
         <input type="hidden" name="id"/>
@@ -654,6 +283,21 @@
       <button class="display-none">キャンセル</button>
       <button class="display-none" id="update-task">保存</button>
     </div>
+
+    <!--リスト複製テスト-->
+    <style>/*
+
+    <script language="javascript" type="text/javascript">
+      function OnButtonClick() {
+          target = document.getElementById("output");
+          target.innerHTML = "Penguin";
+      }
+    </script>
+    <input type="button" value="Exec" onclick="OnButtonClick();"/><br />
+    <br />
+    <div id="output"></div>
+    */</style>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -682,7 +326,6 @@
         const response = await httpGet(
           "//" + window.location.host + "/api/tasks"
         );
-        console.log(response);
       });
 
       // 削除
@@ -702,29 +345,13 @@
           "//" + window.location.host + "/api/tasks",
           data
         );
-        console.log(response);
       });
 
 
-      //登録ボタン押下時
+
+      //タスク一覧取得ブートストラップ
+
       
-      // $("#create-task").on("click", async function(){
-      //   //リクエストデータをフォームから取得
-      //   const requestData= {
-      //     taskName: $("#create-form input[name=task]").val(),
-      //     deadline: $("#create-form input[name=deadline]").val(),
-      //     category: $("#create-form select[name=category]").val(),
-      //   };
-
-      //   //新規登録APIを実行
-      //   const response = await httpPost(
-      //     "//" + window.location.host + "/api/tasks",
-      //     requestData
-      //   );
-
-      //   //画面をリロード
-      //   window.location.reload();
-      // });
 
       //タスク一覧取得
       $(async function(){
@@ -735,7 +362,6 @@
         
         const list = response.map((item)=>{
           //リストを表示
-          console.log(item.deadline);
           return`
           <li>
             <span>${item.task_name}</span>
@@ -773,6 +399,44 @@
         $("#update-form input[name=deadline]").val(deadlineVal);
         $("#update-form select[name=category]").val(response[0].category_id);
         $("#update-form select[name=status]").val(response[0].task_status);
+      });
+
+      //保存ボタン押下時
+      $("#update-task").on("click", async function () {
+        const id = $("#update-form input[name=id]").val();
+
+        //リクエストデータをフォームから取得
+        const requestData = {
+          taskName: $("#update-form input[name=task]").val(),
+          deadline: $("#update-form input[name=deadline]").val(),
+          category: $("#update-form select[name=category]").val(),
+          status: $("#update-form select[name=status]").val(),
+        };
+
+        //新規登録APIを実行
+        const response = await httpUpdate(
+          "//"+ window.location.host+ `/api/tasks/${id}`,
+          requestData
+        );
+
+        //画面をリロード
+        window.location.reload();
+      });
+
+      //削除ボタン押下時
+      $(document).on("click", "#delete-button", async function(){
+        const taskName = $(this).data("delete");
+        if (confirm(`下記の内容を削除します。\n ${taskName}`)){
+          const id = $(this).data("id");
+
+          //削除APIを実行
+          const response = await httpDelete(
+            "//"+ window.location.host + `/api/tasks/${id}`
+          );
+
+          //画面をリロード
+          window.location.reload();
+        }
       });
     </script>
 

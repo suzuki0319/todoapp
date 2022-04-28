@@ -72,6 +72,7 @@ deleteTasksId = async function (id) {
     connection.end();
   }
 };
+exports.deleteTasksId = deleteTasksId;
 
 /**
  * タスクを１件取得する API
@@ -125,8 +126,5 @@ patchTasksId = async function (id, body) {
   }
 };
 
-
-
-exports.deleteTasksId = deleteTasksId;
 
 exports.patchTasksId = patchTasksId;
